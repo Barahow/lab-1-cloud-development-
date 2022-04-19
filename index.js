@@ -1,6 +1,4 @@
-
-
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5003;
 
 const express = require('express');
 const path = require('path');
@@ -24,10 +22,16 @@ app.use(express.static('frontend'));
 
 
 // Answer with the 404 partial if the frontend looks for a non-existant partial
-app.all('/abdullahabbas', (req, res) => {
+app.all('/', (req, res) => {
   res.set('Content-Type', 'text/html');
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
+
+app.all('/abdullahabbas', (req, res) => {
+  res.set('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'frontend', 'index2.html'));
+});
+
 
 
 
